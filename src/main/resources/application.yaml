@@ -1,3 +1,29 @@
 spring:
   application:
-    name: publisher
+    name: kafka-publisher
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      acks: all
+#      retries: 3
+#      properties:
+#        linger.ms: 10
+#        batch.size: 16384
+
+
+server:
+  port: 8081
+
+kafka:
+  topic:
+    name: my-topic
+    partitions: 1
+    replication-factor: 1
+
+logging:
+  level:
+    root: INFO
+    org.springframework.kafka: DEBUG
+    com.kafka.publisher: DEBUG
