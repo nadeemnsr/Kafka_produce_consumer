@@ -3,14 +3,21 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.kafka</groupId>
-		<artifactId>kafka-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.1.0</version>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	
+	<groupId>com.kafka</groupId>
 	<artifactId>kafka-consumer</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>Kafka Consumer</name>
 	<description>Kafka Consumer Application</description>
+
+	<properties>
+		<java.version>17</java.version>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -59,5 +66,14 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
