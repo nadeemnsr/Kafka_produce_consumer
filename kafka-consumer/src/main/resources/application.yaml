@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: kafka-consumer
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: course-consumer-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.kafka.publisher.dto"
+      auto-offset-reset: earliest
+
+server:
+  port: 8082
+
+kafka:
+  topic:
+    name: my-topic
+
+logging:
+  level:
+    root: INFO
+    org.springframework.kafka: DEBUG
+    com.kafka.consumer: DEBUG
